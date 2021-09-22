@@ -1,24 +1,28 @@
 const fs = require('fs');
 // Install the `inquirer` dependency HERE
+const inquirer = require('inquirer');
 
 // Prompt the user for their name, preferred method of communication, and known languages
 // YOUR CODE HERE
 //
-
-// Write the user response to a file by chaining the below callback method to the prompt above.
-function(data) {
-
-  // Bonus: Generate the name of your user file from their input
-  // Your bonus code here
-  //
-
-  fs.writeFile(filename, JSON.stringify(data, null, '\t'), function(err) {
-
-    if (err) {
-      return console.log(err);
+inquirer
+  .prompt([
+    {
+      type: 'input',
+      name: 'name',
+      message: 'What is your name?'
+    },
+    {
+      type: 'list',
+      name: 'communication',
+      message: 'What is your preferred method of communication?',
+      choices: ['email', 'phone', 'slack', 'carrier pigeon']
+    },
+    {
+      type: 'checkbox',
+      name: 'languages',
+      message: 'What languages do you know?',
+      choices: ['HTML', 'CSS', 'Javascript']
     }
-
-    console.log("Success!");
-
-  });
-};
+  ])
+  .then(function(data) {})
