@@ -1,7 +1,11 @@
-const generatePage = (name, github) => {
+export default templeteData => {
+  console.log(templeteData);
+
+// const generatePage = (name, github) => {
     return `
     <!DOCTYPE html> 
     <html lang="en"> 
+    
     <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,10 +14,11 @@ const generatePage = (name, github) => {
     </head>
   
     <body>
-      <h1>${name}</h1>
-      <h2><a href="https://github.com/${github}">Github</a></h2>
+      <h1>${templeteData.name}</h1>
+      <h2><a href="https://github.com/${templeteData.github}">Github</a></h2>
     </body>
     </html>
     `;
   };
-module.exports = generatePage;  
+  
+export default generatePage;  

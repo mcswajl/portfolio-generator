@@ -1,6 +1,6 @@
 const fs = require('fs');
 const inquirer = require('inquirer');
-const generatePage = require('./src/page-template');
+const generatePage = require('./src/page-template').default;
 
 const promptUser = () => {
   return inquirer.prompt([
